@@ -12,7 +12,7 @@
     <script type="text/javascript" src="/javascripts/kittens.js" ></script>
 </head>
 <body>
-<h1>Take Me <a href="/">Home</a></h1>
+<h1>Take Me <a href="index.html">Home</a></h1>
     <div class="col-md-4 col-md-offset-1 section" ng-controller="CarouselDemoCtrl">
         <h2>Kitten Carousel</h2>
         <div style="height: 305px">
@@ -39,10 +39,10 @@
 
     <div class="col-md-4 col-md-offset-1 section" ng-controller="DropdownCtrl">
         <!-- Simple dropdown -->
-        <span class="dropdown" on-toggle="toggled(open)">
-          <a href class="dropdown-toggle">
-              Click me for a dropdown, yo!
-          </a>
+          <span class="dropdown" on-toggle="toggled(open)">
+
+              Math
+
           <ul class="dropdown-menu">
               <li ng-repeat="choice in items">
                   <a href>{{choice}}</a>
@@ -53,32 +53,57 @@
         <!-- Single button -->
         <div class="btn-group" dropdown is-open="status.isopen">
             <button type="button" class="btn btn-primary dropdown-toggle" ng-disabled="disabled">
-                Button dropdown <span class="caret"></span>
+                Grade <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" role="menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li class="divider"></li>
-                <li><a href="#">Separated link</a></li>
+                <li><a href="#">A</a></li>
+                <li><a href="#">B</a></li>
+                <li><a href="#">C</a></li>
+                <li><a href="#">D</a></li>
+                <li><a href="#">F</a></li>
             </ul>
+        </div>
+        <div ng-app >
+            <div>
+                class 1: <input type="number" min="0" max ="4" ng-model="grade">
+                <button ng-click="grade = grade + 1" ng-init="grade=0">
+                    ^
+                </button>
+                <button ng-click="grade = grade - 1" ng-init="grade=0">
+                    v
+                </button>
+            </div>
+            <div>
+                class 2: <input type="number" min="0" max ="4" ng-model="grade2">
+            </div>
+            <div>
+                class 3: <input type="number" min="0" max ="4" ng-model="grade3">
+            </div>
+            <div>
+                class 4: <input type="number" min="0" max ="4" ng-model="grade4">
+            </div>
+            <div>
+                <b>GPA:</b> {{(grade/4)+  (grade2/4) + (grade3/4) + (grade4/4) | number}}
+            </div>
         </div>
 
-        <!-- Split button -->
-        <div class="btn-group" dropdown>
-            <button type="button" class="btn btn-danger">Action</button>
-            <button type="button" class="btn btn-danger dropdown-toggle">
-                <span class="caret"></span>
-                <span class="sr-only">Split button!</span>
-            </button>
-            <ul class="dropdown-menu" role="menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li class="divider"></li>
-                <li><a href="#">Separated link</a></li>
-            </ul>
-        </div>
+
+
+        <!--<!-- Split button -->
+        <!--<div class="btn-group" dropdown>-->
+            <!--<button type="button" class="btn btn-danger">Action</button>-->
+            <!--<button type="button" class="btn btn-danger dropdown-toggle">-->
+                <!--<span class="caret"></span>-->
+                <!--<span class="sr-only">Split button!</span>-->
+            <!--</button>-->
+            <!--<ul class="dropdown-menu" role="menu">-->
+                <!--<li><a href="#">Action</a></li>-->
+                <!--<li><a href="#">Another action</a></li>-->
+                <!--<li><a href="#">Something else here</a></li>-->
+                <!--<li class="divider"></li>-->
+                <!--<li><a href="#">Separated link</a></li>-->
+            <!--</ul>-->
+        <!--</div>-->
 
         <hr />
         <p>
