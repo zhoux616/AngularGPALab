@@ -12,6 +12,7 @@
     <script type="text/javascript" src="/javascripts/kittens.js" ></script>
 </head>
 <body>
+<div ng-controller="GradeController">
 <table class = "table">
     <tr>
         <th>Course Name</th>
@@ -20,9 +21,9 @@
         <th>GPA Point</th>
     </tr>
     <tr ng-repeat="item in classes.class">
-        <td><input type="text" ng-model="item.name"class="input-small"></td>
-        <td><input type="number" class="grade" min="0" max ="4" ng-model="item.credit" ></td>
-        <td><select type="text" ng-model="item.grade" ng-options="gpa.grade for gpa in grades"></select></td>
+        <td>{{item.name}}</td>
+        <td>{{item.credit}}</td>
+        <td>{{item.grade.sign}}</td>
         <td>{{item.grade.value.toFixed(3)}}</td>
     </tr>
     <tr>
@@ -32,5 +33,7 @@
         <td>{{gpa}}</td>
     </tr>
 </table>
+    <button ng-click="print('printableArea');">Print GPA</button>
+</div>
 </body>
 </html>
