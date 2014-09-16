@@ -1,5 +1,7 @@
-angular.module('kittensApp', ['ui.bootstrap']);
-function CarouselDemoCtrl($scope) {
+angular.module('kittensApp', ['ui.bootstrap'])
+
+.controller('CarouselDemoCtrl', ['$scope', function($scope) {
+
     $scope.myInterval = 5000;
     var slides = $scope.slides = [];
     $scope.addSlide = function() {
@@ -13,14 +15,28 @@ function CarouselDemoCtrl($scope) {
     for (var i=0; i<4; i++) {
         $scope.addSlide();
     }
-}
 
-function DropdownCtrl($scope) {
+}])
+
+
+ .controller('GradeController', ['$scope', function($scope) {
     $scope.items = ['A',
                     'B',
                     'C',
                     'D',
                     'F'];
+
+    $scope.grade = 0;
+
+    function gradeIncrease() {
+        var n = this.grade;
+        if(n < 4) {
+            n++
+        } else {
+
+        }
+
+    }
 
     $scope.status = {
         isopen: false
@@ -35,4 +51,4 @@ function DropdownCtrl($scope) {
         $event.stopPropagation();
         $scope.status.isopen = !$scope.status.isopen;
     };
-}
+}]);

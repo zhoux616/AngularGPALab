@@ -37,7 +37,7 @@
         </div>
     </div>
 
-    <div class="col-md-4 col-md-offset-1 section" ng-controller="DropdownCtrl">
+    <div class="col-md-4 col-md-offset-1 section" ng-controller="GradeController">
         <!-- Simple dropdown -->
           <span class="dropdown" on-toggle="toggled(open)">
 
@@ -65,10 +65,10 @@
         </div>
         <div ng-app >
             <div>
-                class 1: <input type="number" min="0" max ="4" ng-model="grade">
-                <button ng-click="grade = grade + 1" ng-init="grade=0">
-                    ^
-                </button>
+                class 1: <span ng-repeat="grade"> <a href>{{grade}}</a> </span>
+                <button><a href="" ng-click="gradeIncrease()">^</a></button>
+
+
                 <button ng-click="grade = grade - 1" ng-init="grade=0">
                     v
                 </button>
