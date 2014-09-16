@@ -13,6 +13,9 @@ a {
     color: grey;
 }
 
+.grade {
+    width: 50px;
+}
 .section {
     border-radius: 10px;
     padding: 20px;

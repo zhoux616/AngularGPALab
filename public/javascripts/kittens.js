@@ -20,23 +20,50 @@ angular.module('kittensApp', ['ui.bootstrap'])
 
 
  .controller('GradeController', ['$scope', function($scope) {
-    $scope.items = ['A',
-                    'B',
-                    'C',
-                    'D',
-                    'F'];
+    $scope.grades = [
+        {grade:'A', value:4.000},
+        {grade:'A-', value:3.667},
+        {grade:'B+', value:3.333},
+        {grade:'B', value:3.000},
+        {grade:'B-', value:2.667},
+        {grade:'C+', value:2.333},
+        {grade:'C', value:2.000},
+        {grade:'C-', value:1.667},
+        {grade:'D+', value:1.333},
+        {grade:'D', value:1.000},
+        {grade:'F', value:0.000}
+    ];
 
-    $scope.grade = 0;
+    $scope.classes = {
+        class: [{
+            name:'name',
+            credit: 1,
+            grade:{
+                sign:'',
+                value:''}
+        }]
+    };
 
-    function gradeIncrease() {
-        var n = this.grade;
-        if(n < 4) {
-            n++
-        } else {
+    $scope.addClass = function() {
+        $scope.classes.class.push({
+            name:'name',
+            credit: 1,
+            grade: {
+                sign:'',
+                value:''}
+        });
+    };
 
-        }
-
-    }
+    $scope.total = function() {
+        var total = 0;
+        var cred = 0;
+        angular.forEach($scope.classes.class, function(item) {
+            total += item.credit * item.grade.value;
+            cred += item.credit;
+        });
+        $scope.returnCred = cred;
+        $scope.gpa = ((total)/cred).toFixed(3);
+    };
 
     $scope.status = {
         isopen: false
