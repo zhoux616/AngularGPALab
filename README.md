@@ -8,7 +8,7 @@ There are several goals in this lab:
    * Continue using HTML and CSS to make a page look decent and contain information you care about
    * Continue using Mocha tests (or, if you find it simpler, you may switch to another language or framework for testing)
 
-This starter code is meant to give you a structure where you can put your work. Your job is to create a fairly basic GPA calculator that allows a user to enter the grades and number of credits for 4-6 classes and displays the correct GPA for the user.
+This starter code is meant to give you a structure where you can put your work. Your job is to create a fairly basic GPA calculator that allows a user to enter the grades and number of credits for 4-6 classes and displays the correct GPA for the user. This week, your main struggle should be figuring out how to test Angular code. The 20 points for writing two tests shoudl be an indication of how important I think this struggle really is. I have a start of a test here from the video linked below, but I am still getting an error about the window not being defined. My test may be something you end up completely ignoring, but I wanted to at least put something there as a start.
 
 How you will be graded for this lab
 ===================================
