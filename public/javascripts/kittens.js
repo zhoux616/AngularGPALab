@@ -1,3 +1,17 @@
+//Niccolas Ricci, Hongya Zhou.
+
+
+
+
+//Helpful resources:
+//    Selector and input: https://docs.angularjs.org/guide/concepts
+//    table and style: http://jsfiddle.net/SubtleGradient/gjajp/
+//    todo app: https://angularjs.org/
+//    remove and controller: https://docs.angularjs.org/api/ng/directive/select
+
+
+
+
 angular.module('kittensApp', ['ui.bootstrap'])
 
 .controller('CarouselDemoCtrl', ['$scope', function($scope) {
@@ -19,6 +33,7 @@ angular.module('kittensApp', ['ui.bootstrap'])
 }])
 
 
+
  .controller('GradeController', ['$scope', function($scope) {
     $scope.grades = [
         {grade:'A', value:4.000},
@@ -34,6 +49,7 @@ angular.module('kittensApp', ['ui.bootstrap'])
         {grade:'F', value:0.000}
     ];
 
+//this is each class item with a name, credit amount, and a value of each grade letter
     $scope.classes = {
         class: [{
             name:'name',
@@ -44,6 +60,7 @@ angular.module('kittensApp', ['ui.bootstrap'])
         }]
     };
 
+     //this function will push a new class to the class list
     $scope.addClass = function() {
         $scope.classes.class.push({
             name:'name',
@@ -54,6 +71,16 @@ angular.module('kittensApp', ['ui.bootstrap'])
         });
     };
 
+    //This function allows you to remove only if the number of classes is > 1
+    $scope.removeClass = function(index) {
+        if($scope.classes.class.length > 1) {
+            $scope.classes.class.splice(index, 1);
+        } else {window.alert("You can't drop the only class")
+          }
+
+    };
+
+    //This function will calculate the GPA, including credits per class
     $scope.total = function() {
         var total = 0;
         var cred = 0;
@@ -63,6 +90,38 @@ angular.module('kittensApp', ['ui.bootstrap'])
         });
         $scope.returnCred = cred;
         $scope.gpa = ((total)/cred).toFixed(3);
+    };
+
+
+
+    $scope.printDiv = function (divName) {
+
+        var printContents = document.getElementById(divName).innerHTML;
+        var originalContents = document.body.innerHTML;
+
+        if (navigator.userAgent.toLowerCase().indexOf('chrome') > -1) {
+            var popupWin = window.open('', '_blank', 'width=600,height=600,scrollbars=no,menubar=no,toolbar=no,location=no,status=no,titlebar=no');
+            popupWin.window.focus();
+            popupWin.document.write('<!DOCTYPE html><html><head>' +
+                '<link rel="stylesheet" type="text/css" href="style.css" />' +
+                '</head><body onload="window.print()"><div class="reward-body">' + printContents + '</div></html>');
+            popupWin.onbeforeunload = function (event) {
+                popupWin.close();
+                return '.\n';
+            };
+            popupWin.onabort = function (event) {
+                popupWin.document.close();
+                popupWin.close();
+            }
+        } else {
+            var popupWin = window.open('', '_blank', 'width=800,height=600');
+            popupWin.document.open();
+            popupWin.document.write('<html><head><link rel="stylesheet" type="text/css" href="style.css" /></head><body onload="window.print()">' + printContents + '</html>');
+            popupWin.document.close();
+        }
+        popupWin.document.close();
+
+        return true;
     };
 
     $scope.status = {

@@ -1,3 +1,5 @@
+<!--Niccolas Ricci, Hongya Zhou.-->
+<!--The credit input does not work on firefox since its version too old.-->
 <!DOCTYPE html>
 <html ng-app="kittensApp">
 <head lang="en">
@@ -79,18 +81,21 @@
             <!--<span>Your GPA: {{(credit1*grade1.credit+credit2*grade2.credit+credit3*grade3.credit+credit4*grade4.credit)/(credit1+credit2+credit3+credit4) | number}} </span>-->
         <!--</div>-->
 
+        <!--Table for each class item-->
         <table class = "table">
-            <tr>
+            <tr class = "fix">
                 <th>Course Name</th>
                 <th>Credits</th>
                 <th>Grade</th>
                 <th>GPA Point</th>
             </tr>
+            <!--Inputs for the name, and credits, selector for the grade.-->
             <tr ng-repeat="item in classes.class">
-                <td><input type="text" ng-model="item.name"class="input-small"></td>
-                <td><input type="number" class="grade" min="0" max ="4" ng-model="item.credit" ></td>
+                <td><input type="text" ng-model="item.name"class="name"></td>
+                <td><input type="number" class="grade" min="0" max ="5" ng-model="item.credit" ></td>
                 <td><select type="text" ng-model="item.grade" ng-options="gpa.grade for gpa in grades"></select></td>
                 <td>{{item.grade.value.toFixed(3)}}</td>
+                <td>[<a href ng-click="removeClass($index)">X</a>]</td>
             </tr>
             <tr>
                 <td>Total Credits:</td>
