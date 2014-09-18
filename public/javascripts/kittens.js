@@ -8,6 +8,7 @@
 //    table and style: http://jsfiddle.net/SubtleGradient/gjajp/
 //    todo app: https://angularjs.org/
 //    remove and controller: https://docs.angularjs.org/api/ng/directive/select
+//    print: http://stackoverflow.com/questions/22189544/print-a-div-using-javascript-in-angularjs-single-page-aplication
 
 
 
@@ -59,8 +60,12 @@ angular.module('kittensApp', ['ui.bootstrap'])
                 value:''}
         }]
     };
+        //This list is using to print.
+    $scope.classToPrint = {
+        class: []
+    };
 
-     //this function will push a new class to the class list
+            //this function will push a new class to the class list
     $scope.addClass = function() {
         $scope.classes.class.push({
             name:'name',
@@ -82,6 +87,10 @@ angular.module('kittensApp', ['ui.bootstrap'])
 
     //This function will calculate the GPA, including credits per class
     $scope.total = function() {
+        //when u click calculate button, this will push all stuff in classes into classToPrint to show the result.
+        angular.forEach($scope.classes.class, function(item) {
+            $scope.classToPrint.class.push(item);
+        });
         var total = 0;
         var cred = 0;
         angular.forEach($scope.classes.class, function(item) {
@@ -93,7 +102,7 @@ angular.module('kittensApp', ['ui.bootstrap'])
     };
 
 
-
+// This function will print out the div with given id.
     $scope.printDiv = function (divName) {
 
         var printContents = document.getElementById(divName).innerHTML;
