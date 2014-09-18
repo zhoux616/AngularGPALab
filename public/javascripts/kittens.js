@@ -1,3 +1,17 @@
+//Niccolas Ricci, Hongya Zhou.
+
+
+
+
+//Helpful resources:
+//    Selector and input: https://docs.angularjs.org/guide/concepts
+//    table and style: http://jsfiddle.net/SubtleGradient/gjajp/
+//    todo app: https://angularjs.org/
+//    remove and controller: https://docs.angularjs.org/api/ng/directive/select
+
+
+
+
 angular.module('kittensApp', ['ui.bootstrap'])
 
 .controller('CarouselDemoCtrl', ['$scope', function($scope) {
@@ -34,6 +48,7 @@ angular.module('kittensApp', ['ui.bootstrap'])
         {grade:'F', value:0.000}
     ];
 
+//this is each class item with a name, credit amount, and a value of each grade letter
     $scope.classes = {
         class: [{
             name:'name',
@@ -44,6 +59,7 @@ angular.module('kittensApp', ['ui.bootstrap'])
         }]
     };
 
+     //this function will push a new class to the class list
     $scope.addClass = function() {
         $scope.classes.class.push({
             name:'name',
@@ -54,6 +70,7 @@ angular.module('kittensApp', ['ui.bootstrap'])
         });
     };
 
+    //This function allows you to remove only if the number of classes is > 1
     $scope.removeClass = function(index) {
         if($scope.classes.class.length > 1) {
             $scope.classes.class.splice(index, 1);
@@ -62,6 +79,7 @@ angular.module('kittensApp', ['ui.bootstrap'])
 
     };
 
+    //This function will calculate the GPA, including credits per class
     $scope.total = function() {
         var total = 0;
         var cred = 0;

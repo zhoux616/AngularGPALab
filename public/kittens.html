@@ -1,3 +1,5 @@
+<!--//Niccolas Ricci, Hongya Zhou.-->
+
 <!DOCTYPE html>
 <html ng-app="kittensApp">
 <head lang="en">
@@ -79,6 +81,9 @@
             <!--<span>Your GPA: {{(credit1*grade1.credit+credit2*grade2.credit+credit3*grade3.credit+credit4*grade4.credit)/(credit1+credit2+credit3+credit4) | number}} </span>-->
         <!--</div>-->
 
+
+
+        <!--Table for each class item-->
         <table class = "table">
             <tr class = "fix">
                 <th>Course Name</th>
@@ -86,6 +91,7 @@
                 <th>Grade</th>
                 <th>GPA Point</th>
             </tr>
+            <!--Inputs for the name, and credits, selector for the grade.-->
             <tr ng-repeat="item in classes.class">
                 <td><input type="text" ng-model="item.name"class="name"></td>
                 <td><input type="number" class="grade" min="0" max ="5" ng-model="item.credit" ></td>
