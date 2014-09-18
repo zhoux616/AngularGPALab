@@ -54,6 +54,14 @@ angular.module('kittensApp', ['ui.bootstrap'])
         });
     };
 
+    $scope.removeClass = function(index) {
+        if($scope.classes.class.length > 1) {
+            $scope.classes.class.splice(index, 1);
+        } else {window.alert("You can't drop the only class")
+          }
+
+    };
+
     $scope.total = function() {
         var total = 0;
         var cred = 0;

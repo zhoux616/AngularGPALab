@@ -80,17 +80,18 @@
         <!--</div>-->
 
         <table class = "table">
-            <tr>
+            <tr class = "fix">
                 <th>Course Name</th>
                 <th>Credits</th>
                 <th>Grade</th>
                 <th>GPA Point</th>
             </tr>
             <tr ng-repeat="item in classes.class">
-                <td><input type="text" ng-model="item.name"class="input-small"></td>
-                <td><input type="number" class="grade" min="0" max ="4" ng-model="item.credit" ></td>
+                <td><input type="text" ng-model="item.name"class="name"></td>
+                <td><input type="number" class="grade" min="0" max ="5" ng-model="item.credit" ></td>
                 <td><select type="text" ng-model="item.grade" ng-options="gpa.grade for gpa in grades"></select></td>
                 <td>{{item.grade.value.toFixed(3)}}</td>
+                <td>[<a href ng-click="removeClass($index)">X</a>]</td>
             </tr>
             <tr>
                 <td>Total Credits:</td>
